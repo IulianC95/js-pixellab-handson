@@ -18,7 +18,50 @@
 </head>
 
 <body>
+  <form action="/">
+    <fieldset>
+      <legend>Calculator Suprafete</legend>
+      <label for="length">Lungime: </label>
+      <input
+        type="text"
+        id="length"
+        name="length"
+        placeholder="Lungime"
+      >
 
+      <br><br>
+
+      <label for="width">Latime: </label>
+      <input
+        type="text"
+        id="width"
+        name="width"
+        placeholder="Latime"
+      >
+
+      <br><br>
+
+      <label for="height">Inaltime</label>
+      <input
+        type="text"
+        id="height"
+        name="height"
+        placeholder="Inaltime"
+      >
+
+      <label for="radius">Raza</label>
+      <input
+        type="text"
+        id="radius"
+        name="radius"
+        placeholder="Raza"
+      >
+
+      <button type="submit">Calculeaza</button>
+
+      <p>Rezultat <span id="result"></span></p>
+    </fieldset>
+  </form>
 
 
   <script src="app.js"></script>
