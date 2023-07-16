@@ -3,7 +3,7 @@ var person = {
   surname: 'Iordache',
   age: 32,
   petOwner: false,
-  skills: ['html', 'JavaScript', 'css'],
+  skills: ['html', 'JavaScript', 'css', 'javascript', 'HTML', 'CSS'],
   friends: [
     {
       name: 'Larry',
@@ -71,4 +71,50 @@ console.log(
     '.',
 );
 
-// am ramas la ex de la pagina 33
+console.log(
+  'Ma numesc ' +
+    person['name'] +
+    ' ' +
+    person['surname'] +
+    ' si vreau sa invat ' +
+    person['skills'][3] +
+    '.',
+);
+
+console.log(
+  'Sunt ' +
+    person['name'] +
+    ' si stiu ' +
+    person['skills'][4] +
+    ' si ' +
+    person['skills'][5] +
+    '.',
+);
+
+console.log(
+  'Am 3 prieteni: ' +
+    person.friends
+      .map(function (friend, index) {
+        if (index === person.friends.length - 2) {
+          return friend.surname + ' si';
+        } else if (index === person.friends.length - 1) {
+          return friend.surname;
+        } else {
+          return friend.surname + ',';
+        }
+      })
+      .join(' ') +
+    '.',
+);
+
+console.log(
+  'Numele meu este ' +
+    person['name'] +
+    ' ' +
+    person['surname'] +
+    ', am ' +
+    person['age'] +
+    ' ani si ' +
+    person['friends'].length +
+    ' prieteni.',
+);

@@ -1,10 +1,17 @@
+const company = 'The JavaScript SRL';
+const companyRegistration = 'J40/11111/2017';
+const companyCode = '12345678';
+const companyAddress =
+  'Strada Scripturilor, Numarul 94, Etaj 1, Sector 1, Bucuresti';
+const brandName = 'Pixellab';
+
 console.log(`
-  Acest website („site-ul”) este administrat de catre The JavaScripts SRL,
-  cu sediul social in Strada Scripturilor, Numarul 94, Etaj 1, Sector 1, Bucuresti,
-  inregistrata la Registrul Comertului sub nr. J40/11111/2017,
-  cod unic de inregistrare 12345678 („Pixellab”).
+  Acest website ("site-ul") este administrat de către ${company},
+  cu sediul social în ${companyAddress},
+  înregistrată la Registrul Comerțului sub nr. ${companyRegistration},
+  cod unic de înregistrare ${companyCode} ("${brandName}").
   Operatorul datelor cu caracter personal este
-  The JavaScripts SRL, prin brand-ul „Pixellab”, cu
-  punctul de lucru la adresa: Strada Scripturilor, Numarul 94, Etaj 1, Sector 1, Bucuresti;
-  In continuare, The JavaScripts SRL va fi numit „Pixellab”.
+  ${company}, prin brand-ul "${brandName}", cu
+  punctul de lucru la adresa: ${companyAddress};
+  În continuare, ${company} va fi numit "${brandName}".
 `);
