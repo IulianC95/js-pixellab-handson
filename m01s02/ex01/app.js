@@ -1,19 +1,9 @@
 console.log('My main program');
 
-var value = 3690;
-console.log('3690');
+console.log(Math.pow(16, 2).toString());
+console.log((20 * 12).toString());
+console.log((15 * 2 + 38 * 2).toString());
 
-var value = 2916;
-console.log('2916');
-
-var value = 176.71458676442586;
-console.log('176.71458676442586');
-
-var value = 256;
-console.log('256');
-
-var value = 240;
-console.log('240');
-
-var value = 106;
-console.log('106');
+console.log((45 * 82).toString());
+console.log((Math.pow(13, 2) + 2 * 13 * 41 + Math.pow(41, 2)).toString());
+console.log((Math.PI * Math.pow(7.5, 2)).toString());
