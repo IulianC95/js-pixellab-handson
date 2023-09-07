@@ -1,9 +1,9 @@
 var person = {
-  name: 'Dragos',
-  surname: 'Iordache',
-  age: 32,
+  name: 'Iulian',
+  surname: 'Cuculici',
+  age: 28,
   petOwner: false,
-  skills: ['html', 'JavaScript', 'css', 'javascript', 'HTML', 'CSS'],
+  skills: ['html', 'javascript', 'css', 'HTML', 'CSS'],
   friends: [
     {
       name: 'Larry',
@@ -23,23 +23,28 @@ var person = {
   ],
 };
 
+console.warn(
+  `Afiseaza propozitia: Ma numesc xxx yyy si stiu html si css. Foloseste notatia cu paranteze patrate`,
+);
+
 console.log(person.friends);
 
 console.log(
   'Ma numesc ' +
-    person['name'] +
+    person.name +
     ' ' +
-    person['surname'] +
+    person.surname +
     ' si stiu ' +
-    person['skills'][0] +
+    person.skills[0] +
     ' si ' +
-    person['skills'][2] +
+    person.skills[2] +
     '.',
 );
 
-console.log(
-  'Sunt ' + person['name'] + ' si acum invat ' + person['skills'][1] + '.',
+console.warn(
+  `Afiseaza propozitia "Sunt xxx si acum invat JavaScript. Nu folosi valoare din arrayul de skills.`,
 );
+console.log('Sunt ' + person.name + ' si acum invat JavaScript.');
 
 // console.log(
 //   'Am ' +
@@ -57,19 +62,31 @@ console.log(
   'Am ' +
     person.friends.length +
     ' prieteni: ' +
-    person.friends
-      .map(function (friend, index) {
-        if (index === person.friends.length - 2) {
-          return friend.name + ' si';
-        } else if (index === person.friends.length - 1) {
-          return friend.name;
-        } else {
-          return friend.name + ',';
-        }
-      })
-      .join(' ') +
+    person.friends[0].name +
+    ', ' +
+    person.friends[1].name +
+    ' si ' +
+    person.friends[2].name +
     '.',
 );
+
+// console.log(
+//   'Am ' +
+//     person.friends.length +
+//     ' prieteni: ' +
+//     person.friends
+//       .map(function (friend, index) {
+//         if (index === person.friends.length - 2) {
+//           return friend.name + ' si';
+//         } else if (index === person.friends.length - 1) {
+//           return friend.name;
+//         } else {
+//           return friend.name + ',';
+//         }
+//       })
+//       .join(' ') +
+//     '.',
+// );
 
 console.log(
   'Ma numesc ' +
@@ -77,7 +94,7 @@ console.log(
     ' ' +
     person['surname'] +
     ' si vreau sa invat ' +
-    person['skills'][3] +
+    person['skills'][1] +
     '.',
 );
 
@@ -85,9 +102,9 @@ console.log(
   'Sunt ' +
     person['name'] +
     ' si stiu ' +
-    person['skills'][4] +
+    person['skills'][3] +
     ' si ' +
-    person['skills'][5] +
+    person['skills'][4] +
     '.',
 );
 

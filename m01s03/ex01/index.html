@@ -5,22 +5,18 @@
 >
 
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Object Intro</title>
 
   <link
     rel="stylesheet"
     href="https://tab.pixellab.ro/pixeltab.css"
-  >
+  />
 
   <script src="https://tab.pixellab.ro/pixeltab-top.js"></script>
-
 </head>
 
 <body>
-
-
-
   <script>
     var object = {
       name: 'Cuculici',
@@ -30,17 +26,30 @@
 
     console.log(object.name);
     console.log(object.age.toString());
-    console.log('Ma numesc ' + object.name + ' ' + object.surname + ' si am ' + object.age + ' ani.');
+    console.log(
+      'Ma numesc ' +
+      object.name +
+      ' ' +
+      object.surname +
+      ' si am ' +
+      object.age +
+      ' ani.',
+    );
     console.log((new Date().getFullYear() - object.age).toString());
 
     object.petOwner = true;
 
-    console.log(object.name + ' ' + object.surname + ' are ' + object.age + ' ani.');
-    console.log(object.name + ' s-a nascut in ' + (new Date().getFullYear() - object.age + '.'));
+    console.log(
+      object.name + ' ' + object.surname + ' are ' + object.age + ' ani.',
+    );
+    console.log(
+      object.name +
+      ' s-a nascut in ' +
+      (new Date().getFullYear() - object.age + '.'),
+    );
 
     object.carOwner = true;
   </script>
-
 
   <div
     class="pixeltab-host"
