@@ -136,7 +136,7 @@ var message = '';
 person.friends.forEach(function (friend, index) {
   var punctuation = '. ';
 
-  var ageDiff = person.age - friend.age;
+  var ageDiff = Math.abs(person.age - friend.age);
   var prop = `Intre ${person.name} si ${friend.name} este o diferenta de ${ageDiff} ani`;
   if (index === person.friends.length - 1) {
     punctuation = '.';
@@ -144,10 +144,18 @@ person.friends.forEach(function (friend, index) {
   message += prop + punctuation;
 });
 console.log(message);
+
 console.warn(
   `Folosind metoda reverse si apoi forEach, afiseaza
   in ordine inversa elementele arrayului skills.`,
 );
+
+// person.skills
+//   .slice()
+//   .reverse()
+//   .forEach(function (skill) {
+//     console.log(skill);
+//   });
 
 var reversedSkills = [...person.skills].reverse();
 
