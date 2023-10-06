@@ -34,3 +34,36 @@ const field3Yield = calculateRectangleArea(400, 370) * barleyYield;
 const field3BeerYield = field3Yield * beerYield;
 
 console.log(field3BeerYield);
+
+console.warn(`Stiind ca un camp dreptunghiular de grau produce 32kg/m2
+de faina, afla si afiseaza cate kilograme de paine produce un camp de
+300 pe 200 metri, stiind ca dintr-un kilogram de faina ies 2.5 kg de paine.`);
+
+let wheatFieldLength = 300;
+let wheatFieldWidth = 200;
+let wheatYield = 32; // kg/m2
+let breadPerKgWheat = 2.5; // kg of bread per kg of wheat
+
+const wheatFieldYield =
+  calculateRectangleArea(wheatFieldWidth, wheatFieldLength) * wheatYield;
+const totalBread = wheatFieldYield * breadPerKgWheat;
+
+console.log(totalBread);
+
+console.warn(`Dar doua campuri de 150 pe 200 si 500 pe 300 in total?`);
+
+wheatFieldLength = 150;
+wheatFieldWidth = 200;
+
+const firstField =
+  calculateRectangleArea(wheatFieldLength, wheatFieldWidth) * wheatYield;
+const totalFirstField = firstField * breadPerKgWheat;
+
+wheatFieldLength = 500;
+wheatFieldWidth = 300;
+
+const secondField =
+  calculateRectangleArea(wheatFieldLength, wheatFieldWidth) * wheatYield;
+const totalSecondField = secondField * breadPerKgWheat;
+
+console.log(totalFirstField + totalSecondField);
