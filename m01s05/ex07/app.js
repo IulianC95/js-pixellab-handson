@@ -40,3 +40,5 @@ console.warn(`Afiseaza propozitia: “Data curenta este zz ll aaaa.”.`);
 console.log(
   `Data curenta este ${dateBuilder[2]()} ${dateBuilder[1]()} ${dateBuilder[0]()}.`,
 );
+
+// ^ _ ^ \\
