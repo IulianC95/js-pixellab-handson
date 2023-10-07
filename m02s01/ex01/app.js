@@ -11,6 +11,8 @@ class Car {
     this.color = color;
     this.wheels = wheels;
     this.speed = speed;
+    this.isTrunkOpen = false;
+    this.areLightsOn = false;
   }
 
   accelerate() {
@@ -36,10 +38,38 @@ class Car {
 
     this.speed = speed;
   }
+
+  openTrunk(isTrunkOpen) {
+    this.isTrunkOpen = true;
+  }
+
+  closeTrunk(isTrunkOpen) {
+    this.isTrunkOpen = false;
+  }
+
+  turnLightsOn(areLightsOn) {
+    this.areLightsOn = true;
+  }
+
+  turnLightsOff(areLightsOn) {
+    this.areLightsOn = false;
+  }
+
+  flashLights() {
+    this.turnLightsOn();
+    window.setTimeout(() => {
+      this.turnLightsOff();
+    }, 2000);
+  }
 }
 
 const audi = new Car('Audi', 'black', 4, 50);
 const opel = new Car('Opel', 'red', 4, 3);
 
 const cars = [audi, opel];
-// sa vedem bucla pe tema
+cars.forEach((car) => {
+  for (let i = 0; i < 5; i++) {
+    car.decelerate();
+  }
+  console.log(`Viteza noua este ${car.speed} km/h.`);
+});
