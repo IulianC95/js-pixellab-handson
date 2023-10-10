@@ -1,4 +1,4 @@
-var person = {
+const person = {
   name: 'Iulian',
   surname: 'Cuculici',
   age: 36,
@@ -37,12 +37,12 @@ for imbricate (nested), afiseaza diferenta de varsta dintre fiecare
 membru al arrayului friends si ceilalti membri.
 Poti folosi metoda pentru a converti numerele negative in pozitive. `);
 
-for (var i = 0; i < person.friends.length; i++) {
-  for (var j = 0; j < person.friends.length; j++) {
+for (let i = 0; i < person.friends.length; i++) {
+  for (let j = 0; j < person.friends.length; j++) {
     if (i !== j) {
-      var friend1 = person.friends[i];
-      var friend2 = person.friends[j];
-      var ageDiff = Math.abs(friend1.age - friend2.age);
+      const friend1 = person.friends[i];
+      const friend2 = person.friends[j];
+      const ageDiff = Math.abs(friend1.age - friend2.age);
 
       console.log(
         `Intre ${friend1.name} si ${friend2.name} este o diferenta de ${ageDiff} ani.`,
