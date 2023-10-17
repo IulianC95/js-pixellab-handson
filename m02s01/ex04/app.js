@@ -8,6 +8,10 @@
 // left: 100; top: 200; background: purple;
 
 class Car {
+  // classes are sintactic sugar
+  isLightOn = false;
+  intervalId = -1;
+
   constructor(left = 10, top = 10, color = 'black') {
     this.positionX = left;
     this.positionY = top;
@@ -57,19 +61,44 @@ class Car {
 
   e(elementType = 'div') {
     // wrapper pentru document.createElement
+
     return document.createElement(elementType);
   }
 
   turnLightOn() {
     this.lightFront.classList.add('light--on');
+    this.isLightOn = true;
 
     return this;
   }
 
   turnLightOff() {
     this.lightFront.classList.remove('light--on');
+    this.isLightOn = false;
 
     return this;
+  }
+
+  toggleHazards() {
+    if (this.intervalId > 0) {
+      // stop interval
+      clearInterval(this.intervalId);
+      this.IntervalId = -1;
+
+      if (this.isLightOn === true) {
+        this.lightFront.classList.add('light--on');
+      } else {
+        this.lightFront.classList.remove('light--on');
+      }
+
+      return;
+    }
+
+    // metoda de prezervare a this
+    // post 2016
+    this.IntervalId = setInterval(() => {
+      this.ligthFront.classList.toggle('light--on');
+    }, 800);
   }
 
   move(left, top) {
@@ -93,5 +122,5 @@ class Car {
   }
 }
 
-const purpleCar = new Car(100, 200, 'purple').render();
+const purpleCar = new Car(200, 300, 'purple').render();
 // new Date().getFullYear();
