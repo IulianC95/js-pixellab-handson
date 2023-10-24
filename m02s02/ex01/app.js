@@ -17,23 +17,33 @@ function renderSkillInput() {
   skillInputButton.innerText = '+';
   skillInputButton.type = 'button';
 
+  skillInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addSkill(event.currentTarget);
+    }
+  });
+
   // refactor
   skillInputButton.addEventListener('click', function (event) {
     const button = event.currentTarget;
-    // DOM traversal
     const skillInput = button.previousElementSibling;
-    const skillValue = skillInput.value;
-    if (skillValue.trim().length < 1) {
-      return;
-    }
-
-    button.after(renderSkillsUl(skillValue));
+    addSkill(skillInput);
   });
 
   container.append(skillInput);
   container.append(skillInputButton);
 
   return container;
+}
+
+function addSkill(skillInput) {
+  const skillValue = skillInput.value;
+  if (skillValue.trim().length < 1) {
+    return;
+  }
+  skillInput.after(renderSkillsUl(skillValue));
+  skillInput.value = '';
 }
 
 function renderSkillsUl(skillName) {
@@ -107,6 +117,12 @@ form.addEventListener('submit', function (event) {
   person.age = form.age.value;
   person.skills = [];
 
+  person.friends = [];
+  const friendNames = form.querySelectorAll('input[name^="friend-"]');
+  friendNames.forEach(function (friendInput) {
+    person.friends.push(friendInput.value);
+  });
+
   // extragem campurile prefixate cu skill- din form
   const skillNames = form.querySelectorAll('input[name^="skill-"]');
   skillNames.forEach(function (skillInput) {
@@ -118,6 +134,16 @@ form.addEventListener('submit', function (event) {
   form.after(personDisplay);
 
   form.reset();
+
+  const skillsUl = document.querySelector('.skillsUl');
+  if (skillsUl) {
+    skillsUl.remove();
+  }
+
+  const friendsUl = document.querySelector('.friendsUl');
+  if (friendsUl) {
+    friendsUl.remove();
+  }
 });
 
 form.addEventListener('click', function (event) {
@@ -278,6 +304,11 @@ function render(person) {
     personDisplay.append(skillsUl);
   }
 
+  const friendsUl = renderFriends(person.friends);
+  if (friendsUl !== null) {
+    personDisplay.append(friendsUl);
+  }
+
   return personDisplay;
 }
 
@@ -311,3 +342,91 @@ function renderSkills(skills = []) {
 
   return container;
 }
+
+// tema
+
+function renderFriendInput() {
+  const container = new DocumentFragment();
+  const friendInput = document.createElement('input');
+  friendInput.type = 'text';
+  friendInput.placeholder = 'Adauga Prieten';
+  friendInput.classList.add('addFriend');
+
+  const friendInputButton = document.createElement('button');
+  friendInputButton.title = 'Adauga Prieten';
+  friendInputButton.innerText = '+';
+  friendInputButton.type = 'button';
+
+  friendInputButton.addEventListener('click', function (event) {
+    const button = event.currentTarget;
+    const friendInput = button.previousElementSibling;
+    addFriend(friendInput);
+  });
+
+  friendInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      addFriend(event.currentTarget);
+    }
+  });
+
+  container.append(friendInput);
+  container.append(friendInputButton);
+  return container;
+}
+
+function addFriend(friendInput) {
+  const friendValue = friendInput.value;
+  if (friendValue.trim().length < 1) {
+    return;
+  }
+  friendInput.after(renderFriendsUl(friendValue));
+  friendInput.value = ''; // Resetare valoare
+}
+
+function renderFriendsUl(friendName) {
+  const className = 'friendsUl';
+  let friendsUl = document.querySelector('.' + className);
+
+  if (friendsUl === null) {
+    friendsUl = document.createElement('ul');
+    friendsUl.classList.add(className);
+  }
+
+  const friendLi = document.createElement('li');
+  friendLi.innerText = friendName;
+
+  const friendInput = document.createElement('input');
+  friendInput.type = 'hidden';
+  friendInput.name = `friend-${friendName}`;
+  friendInput.value = friendName;
+
+  friendLi.append(friendInput);
+  friendsUl.append(friendLi);
+
+  return friendsUl;
+}
+
+function renderFriends(friends = []) {
+  if (friends.length <= 0) {
+    return null;
+  }
+
+  const container = new DocumentFragment();
+  const heading = document.createElement('h3');
+  heading.innerText = 'Prieteni';
+  container.append(heading);
+
+  const ul = document.createElement('ul');
+  friends.forEach(function (friendName) {
+    const li = document.createElement('li');
+    li.innerText = friendName;
+    ul.append(li);
+  });
+
+  container.append(ul);
+  return container;
+}
+
+const friendContainer = document.getElementById('friendContainer');
+friendContainer.append(renderFriendInput());

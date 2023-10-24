@@ -66,7 +66,8 @@ class Car {
   }
 
   turnLightOn() {
-    this.lightFront.classList.add('light--on');
+    this.lightFront.classList.toggle('light--on');
+
     this.isLightOn = true;
 
     return this;
@@ -79,25 +80,31 @@ class Car {
     return this;
   }
 
+  engageBreak() {
+    this.lightBack.classList.toggle('light--on');
+    return this;
+  }
+
   toggleHazards() {
     if (this.intervalId > 0) {
       // stop interval
       clearInterval(this.intervalId);
-      this.IntervalId = -1;
+      this.intervalId = -1;
 
       if (this.isLightOn === true) {
         this.lightFront.classList.add('light--on');
+        this.lightBack.classList.add('light--on');
       } else {
         this.lightFront.classList.remove('light--on');
+        this.lightBack.classList.remove('light--on');
       }
 
       return;
     }
 
-    // metoda de prezervare a this
-    // post 2016
-    this.IntervalId = setInterval(() => {
-      this.ligthFront.classList.toggle('light--on');
+    this.intervalId = setInterval(() => {
+      this.lightFront.classList.toggle('light--on');
+      this.lightBack.classList.toggle('light--on');
     }, 800);
   }
 
