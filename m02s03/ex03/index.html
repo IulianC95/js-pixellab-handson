@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>DOM Events - Mouseover, mouseout</title>
+    <style>
+      body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        box-sizing: border-box;
+      }
 
-<head>
-  <meta charset="utf-8">
-  <title>DOM Events - Mouseover, mouseout</title>
-  <style>
-    body {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      box-sizing: border-box;
-    }
+      .stage {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+      }
 
-    .stage {
-      width: 300px;
-      height: 300px;
-      border: 1px solid #000;
-    }
+      .logs {
+        background-color: bisque;
+        height: 100%;
+        width: 20%;
+      }
 
-    .logs {
-      background-color: bisque;
-      height: 100%;
-      width: 20%;
-    }
+      .logs p {
+        top: 20px;
+        left: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #8a2be2;
+        padding: 5px;
+      }
 
-    .logs p {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #8a2be2;
-    }
+      .pane {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
 
-    .pane {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  <body>
+    <div class="logs"></div>
 
-  </style>
-</head>
+    <div class="pane">
+      <div class="stage"></div>
+    </div>
 
-<body>
-  <div class="logs"></div>
-
-  <div class="pane">
-    <div class="stage"></div>
-  </div>
-
-  <script src="app.js"></script>
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>
