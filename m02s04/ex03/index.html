@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8" />
-    <title>CSS animation in JavaScript</title>    
+    <title>CSS animation in JavaScript</title>
     <style>
       * {
         box-sizing: border-box;
       }
-      
+
       body {
         padding: 20px;
       }
@@ -20,11 +20,11 @@
       }
 
       .controls {
-      margin: 25px 0 0 0; 
-      padding: 15px;
-      width: 750px; 
-      height: auto; 
-      border: 1px solid #000;
+        margin: 25px 0 0 0;
+        padding: 15px;
+        width: 750px;
+        height: auto;
+        border: 1px solid #000;
       }
 
       .controls button {
@@ -40,28 +40,28 @@
         width: 45px;
         height: 45px;
         background-color: #000;
+        transition: translate 0.2s linear;
       }
     </style>
-</head>
-<body>
-  
-  <div class="stage">
-    <div class="hero"></div>
-  </div>
+  </head>
+  <body>
+    <div class="stage">
+      <div class="hero"></div>
+    </div>
 
-  <div class="controls">
-    <div class="row">
-      <button>⬆️</button>
+    <div class="controls">
+      <div class="row">
+        <button data-direction="N">⬆️</button>
+      </div>
+      <div class="row">
+        <button data-direction="W">⬅️</button> &nbsp; &nbsp;
+        <button data-direction="E">➡️</button>
+      </div>
+      <div class="row">
+        <button data-direction="S">⬇️</button>
+      </div>
     </div>
-    <div class="row">
-      <button>⬅️</button> &nbsp; &nbsp;
-      <button>➡️</button>
-    </div>
-    <div class="row">
-      <button>⬇️</button>
-    </div>
-  </div>
 
-  <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>
