@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderPersons = (persons = []) => {
     const section = document.getElementById('personsDisplay');
     section.innerHTML = '';
+    const container = new DocumentFragment();
 
     persons.forEach((person) => {
       // destructure
@@ -32,8 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const p = document.createElement('p');
       p.innerText = `${name} ${surname}`;
 
-      section.append(p);
+      container.append(p);
     });
+
+    section.append(container);
   };
 
   const getPersons = () => {
@@ -64,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // renderPersons([
   //   {
-  //     name: 'Iulian',
-  //     surname: 'Cuculici',
+  //     name: 'Dragos',
+  //     surname: 'Iordache',
   //   },
   // ]);
 });
