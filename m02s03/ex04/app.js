@@ -1,13 +1,17 @@
 const image = document.querySelector('.image');
 
-function showMessage(message) {
-  const messageContainer = document.createElement('p');
-  messageContainer.innerText = message;
+const loadingMessage = document.createElement('p');
+loadingMessage.innerText = 'Imaginea se incarca...';
+document.body.insertBefore(loadingMessage, image);
 
-  // side effect
-  document.body.append(messageContainer);
+function showMessage(message) {
+  loadingMessage.innerText = message;
 }
 
 image.addEventListener('load', function () {
   showMessage('Imaginea s-a incarcat');
+
+  image.addEventListener('click', function () {
+    alert(`Imagea cu URLul: ${this.src} s-a incarcat`);
+  });
 });

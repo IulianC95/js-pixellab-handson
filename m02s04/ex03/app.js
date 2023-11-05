@@ -10,12 +10,18 @@ const axisMotionMap = {
   S: {
     y: 1,
   },
+  W: {
+    x: -1,
+  },
+  N: {
+    y: -1,
+  },
 };
 const keysMap = {
-  // ArrowUp: ,
+  ArrowUp: axisMotionMap.N,
   ArrowRight: axisMotionMap.E,
   ArrowDown: axisMotionMap.S,
-  // ArrowLeft: ,
+  ArrowLeft: axisMotionMap.W,
 };
 const step = 30;
 
@@ -77,5 +83,11 @@ function updateHeroPosition(axes) {
     heroState.y = stage.clientHeight - hero.clientHeight;
   }
 
-  // insert code for N and W
+  if (heroState.x <= 0) {
+    heroState.x = 0;
+  }
+
+  if (heroState.y <= 0) {
+    heroState.y = 0;
+  }
 }
