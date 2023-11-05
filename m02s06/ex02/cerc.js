@@ -1,11 +1,13 @@
 console.log(process.argv);
-// destructurare
-// let length = [process.argv[2]]
-// let width = [process.argv[3]]
-let [, , length, width] = process.argv;
-length = Number(length);
-width = Number(width);
 
-const area = length * width;
+let [, , radius] = process.argv;
+radius = Number(radius);
 
-console.log(area);
+if (isNaN(radius) || radius < 0) {
+  console.log('Introdu un nr. valid pentru raza cercului');
+  process.exit(1);
+}
+
+const area = Math.PI * radius * radius;
+
+console.log(`Suprafata cercului cu raza ${radius} este ${area}`);
