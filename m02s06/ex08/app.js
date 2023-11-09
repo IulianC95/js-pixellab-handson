@@ -41,23 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const getPersons = () => {
-    return fetch('http://localhost:8080/persons')
-      .then((response) => {
-        return response.json();
-      })
-      .then((persons) => {
+    return axios
+      .get('http://localhost:8080/persons')
+      .then(({ data: persons }) => {
+        // const persons = result.data
         renderPersons(persons);
       });
   };
 
   const postPerson = (person) => {
-    return fetch('http://localhost:8080/persons', {
-      method: 'POST',
-      body: JSON.stringify(person),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    return axios
+      .post('http://localhost:8080/persons', person)
       .then((response) => {
         return response.json();
       })
