@@ -10,4 +10,8 @@ let array6 = [6, 7, 8];
 let array7 = [...array5, 5, ...array6];
 
 let array8 = [1, 2, 3, 4, 5];
-let array9 = [];
+let array9 = [...array8];
+
+array8.reverse();
+
+array8.forEach((number) => console.log(number));
